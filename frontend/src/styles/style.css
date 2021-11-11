@@ -41,12 +41,12 @@ body{
     display: flex;
     flex-direction: row;
     margin-bottom: 50px;
-    border: .5px solid var(--grey);
     border-radius: 5px;
 }
 
 .containerLogin .choose button{
     border: none;
+    background: var(--white);
 }
 
 .containerLogin p{
@@ -58,6 +58,7 @@ body{
     border: none;
     border-bottom: 2px solid black;
     font-size:12pt;
+    background: var(--white);
 }
 
 #sub{
@@ -88,4 +89,30 @@ body{
 .sign:hover{
     background: var(--dark-blue);
     color:var(--white);
+}
+
+#logS, #sigS{
+    border: none;
+    padding:10px;
+}
+
+.lineaN{
+    position:absolute;
+    width: 70px;
+    height: 6px;
+    margin-top: 40px;
+    background: var(--dark-blue);
+    border-radius: 2px;
+    transition:.5s;
+}
+
+.lineaM{
+    position:absolute;
+    width: 70px;
+    height: 6px;
+    margin-top: 40px;
+    background: var(--dark-blue);
+    border-radius: 2px;
+    margin-left:77px;
+    transition:.5s;
 }

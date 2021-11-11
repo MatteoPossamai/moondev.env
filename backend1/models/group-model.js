@@ -8,6 +8,9 @@ const GroupSchema = new Schema({
     }, partecipants:{
         type: Array,
         required:true,
+    }, files: {
+        type:Array,
+        required: false,
     }
 })
 

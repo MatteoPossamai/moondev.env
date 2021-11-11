@@ -3,13 +3,15 @@ const Schema = mongoose.Schema;
 
 const User = require('./user-model');
 const Extension = require('./extension-module');
+const Group = require('./group-model');
 
 const FileSchema = new Schema({
     name: {
         type: String,
         required: true,
+        minlength:3,
     }, extension: {
-        type:Extension,
+        type:String,
         required:true,
     }, content: {
         type:String,
@@ -19,8 +21,11 @@ const FileSchema = new Schema({
         required: true,
         //private, group, pubblic
     }, creator:{
-        type: User,
+        type: String,
         required: true,
+    }, group:{
+        type:String,
+        required:false,
     }
 })
 

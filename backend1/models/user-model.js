@@ -7,17 +7,22 @@ const UserSchema = new Schema({
     name: {
         type: String,
         required: true,
+        unique: true, 
+        minlength:3,
     }, email: {
         type:String,
         required:true,
+        unique: true,
     }, password: {
         type:String,
         required:true,
+        unique: true,
+        minlength:7,
     }, files:{
         type: Array,
         required:true,
     }, group:{
-        type:Group, 
+        type:String, 
         required:true,
     }, image:{
         type:String,
