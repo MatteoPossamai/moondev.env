@@ -5,9 +5,13 @@ const GroupSchema = new Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
+    },founder:{
+        type:String,
+        required: true, 
     }, partecipants:{
         type: Array,
-        required:true,
+        required:false,
     }, files: {
         type:Array,
         required: false,

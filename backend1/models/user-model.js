@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Group = require('./group-model');
-
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -16,14 +14,13 @@ const UserSchema = new Schema({
     }, password: {
         type:String,
         required:true,
-        unique: true,
         minlength:7,
     }, files:{
         type: Array,
         required:true,
     }, group:{
         type:String, 
-        required:true,
+        required:false,
     }, image:{
         type:String,
         required: false,

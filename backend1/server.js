@@ -21,8 +21,12 @@ const connection = mongoose.connection;
 connection.once('open', () => console.log('Connected'));
 
 const fileRouter = require('./routes/fileRoutes');
+const userRouter = require('./routes/userRoutes');
+const groupRouter = require('./routes/groupRoutes');
 
 app.use('/file', fileRouter);
+app.use('/user', userRouter);
+app.use('/group', groupRouter);
 
 app.listen(port, () => {console.log(`Server listening on port ${port}`)});
 

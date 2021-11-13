@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const User = require('./user-model');
-const Extension = require('./extension-module');
-const Group = require('./group-model');
-
 const FileSchema = new Schema({
     name: {
         type: String,

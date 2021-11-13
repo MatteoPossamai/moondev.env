@@ -11,6 +11,9 @@ const ExtensionSchema = new Schema({
     }, image: {
         type:String, //store the directory
         required:true,
+    }, keywords: {
+        type:Array,
+        required:true,
     }
 })
 
