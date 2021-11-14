@@ -10,6 +10,7 @@
 
 body{
     background: linear-gradient(to left, var(--night), var(--dark-blue));
+    text-align:center;
 }
 
 *:focus{
@@ -119,4 +120,62 @@ body{
     border-radius: 2px;
     margin-left:77px;
     transition:.5s;
+}
+
+/*Edit page style*/
+
+.edit{
+    display: flex;
+    flex-direction: row;
+}
+
+.edittitle{
+    margin-bottom:50px;
+    margin-top: 20px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 45pt;
+    letter-spacing: 3px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+}
+
+.sidebar{
+    margin-left:20px;
+    letter-spacing: 3px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    margin-right: 20px;
+    background: var(--white);
+    padding:30px;
+    border-radius: 10px;
+    min-height: 600px;
+}
+
+.sidesaparator{
+    height:3px;
+    width:100%;
+    background: var(--dark-blue);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+/*Editor Style*/
+.editor{
+    padding:30px;
+    background-color:var(--white);
+    min-height:600px;
+    min-width: 70%;
+    border-radius: 10px;
+}
+
+.opened{
+    height:25px;
+    min-width: 50px;
+    max-width: 150px;
+    position: relative;
+    background: var(--white);
+    padding: 1px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    top:-65px;
+    left:-25px;
+    border-radius: 10px;
 }
