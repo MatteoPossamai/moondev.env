@@ -23,10 +23,12 @@ connection.once('open', () => console.log('Connected'));
 const fileRouter = require('./routes/fileRoutes');
 const userRouter = require('./routes/userRoutes');
 const groupRouter = require('./routes/groupRoutes');
+const extensionRouter = require('./routes/extensionRoutes');
 
 app.use('/file', fileRouter);
 app.use('/user', userRouter);
 app.use('/group', groupRouter);
+app.use('/ext', extensionRouter);
 
 app.listen(port, () => {console.log(`Server listening on port ${port}`)});
 
