@@ -1,11 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 :root {
     --black: #000000;
     --white: #d2dcd2; 
     --dark-blue: #1a3491;
     --night: #050f30;
-    --grey: #6b728c;    
+    --grey: #6b728c;
+    --dark-editor:#0a1424;
+    --light-editor: #d3dbe8;    
   }
 
 body{
@@ -170,7 +173,7 @@ body{
 .opened{
     height:25px;
     min-width: 50px;
-    max-width: 150px;
+    max-width: 180px;
     position: relative;
     background: var(--white);
     padding: 1px;
@@ -178,4 +181,32 @@ body{
     top:-65px;
     left:-25px;
     border-radius: 10px;
+}
+
+.editorText{
+    margin: auto;
+    width:85%;
+    height:95%;
+    font-weight:300;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:12pt;
+    resize:none;
+}
+
+#dark{
+    background: var(--dark-editor);
+    color: var(--light-editor);
+}
+
+#light{
+    background: var(--light-editor);
+    color:var(--dark-editor);
+}
+
+.buttonTheme{
+    height: 50px;
+    width:70px;
+    position:relative;
+    top:0;
+    left:0;
 }

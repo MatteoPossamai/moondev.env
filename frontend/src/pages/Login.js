@@ -20,7 +20,6 @@ const Login = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        //console.log('Submitted')
     };
 
     const changeHandlerL = () =>{
@@ -49,7 +48,6 @@ const Login = () => {
 
 const LogSub = () => {
     const l = useContext(LoginContest);
-    console.log(l)
     return <>
         <p>Email:</p>
         <input type="text" name="email" value={l.email} onChange={(e)=> l.setEmail(e.target.value)}/>
@@ -63,7 +61,6 @@ const LogSub = () => {
 
 const SigSub = () => {
     const l = useContext(LoginContest);
-    console.log(l)
     return <>
         <p>Name:</p>
         <input type="text" name="name" value={l.name} onChange={(e)=> l.setName(e.target.value)}/>
