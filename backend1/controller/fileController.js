@@ -62,6 +62,14 @@ const modifyFileContent = (req,res) => {
     return 'Function still in development';
 }
 
+const deleteFile = (req,res) => {
+    const name = req.body.name;
+
+    File.findOneAndDelete({name:name})
+        .then(() => res.json("Deleted"))
+        .catch(err => res.status(400).json('ERROR:'+err))
+}
+
 module.exports = {
     getFiles,
     getFilesById,
@@ -70,4 +78,5 @@ module.exports = {
     getFilesGroup,
     createNewFile, 
     modifyFileContent,
+    deleteFile,
 }
