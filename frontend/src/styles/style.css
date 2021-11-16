@@ -9,6 +9,7 @@
     --grey: #6b728c;
     --dark-editor:#0a1424;
     --light-editor: #d3dbe8;    
+    --celeste: #03cafc;
   }
 
 body{
@@ -143,7 +144,7 @@ body{
 }
 
 .sidebar{
-    margin-left:20px;
+    margin-left:10px;
     letter-spacing: 3px;
     font-family: 'Mochiy Pop P One', sans-serif;
     margin-right: 20px;
@@ -151,6 +152,7 @@ body{
     padding:30px;
     border-radius: 10px;
     min-height: 600px;
+    box-shadow:20px 20px var(--grey);
 }
 
 .sidesaparator{
@@ -163,16 +165,22 @@ body{
 
 /*Editor Style*/
 .editor{
+    display: flex;
+    flex-direction: row;
     padding:30px;
     background-color:var(--white);
     min-height:600px;
-    min-width: 70%;
+    width: 70%;
+    min-width: 50%;
+    margin-left: 2%;
     border-radius: 10px;
+    box-shadow:20px 20px var(--grey); 
+    font-family: 'Mochiy Pop P One', sans-serif;
 }
 
 .opened{
     height:25px;
-    min-width: 50px;
+    min-width: 90px;
     max-width: 180px;
     position: relative;
     background: var(--white);
@@ -191,6 +199,9 @@ body{
     font-family: 'Source Sans Pro', sans-serif;
     font-size:12pt;
     resize:none;
+    padding:1px;
+    transition: 1s;
+    border-radius: 10px;
 }
 
 #dark{
@@ -204,9 +215,51 @@ body{
 }
 
 .buttonTheme{
-    height: 50px;
+    background: var(--celeste);
+    display:flex;
+    flex-direction: row;
+    border:2px solid var(--dark-editor);
+    border-radius: 30px;
+    padding:2px;
+    height: 30px;
     width:70px;
-    position:relative;
-    top:0;
-    left:0;
+    min-width: 70px;
+    z-index:10;
+    margin-top:10px;
+}
+
+.obj{
+    max-height: 20px;
+    max-width:20px;
+    padding:2px;
+    margin:3px 0 0 7px;
+}
+
+.circleDark{
+    content: '';
+    display:inline-block;
+    background:var(--dark-editor);
+    height:24px;
+    width:24px;
+    border-radius: 13px;
+    margin-top:-1px;
+    margin-left:-20px;
+    transition:1s;
+}
+
+.circleLight{
+    content: '';
+    display:inline-block;
+    background:var(--dark-editor);
+    height:24px;
+    width:24px;
+    border-radius: 13px;
+    margin-top:-1px;
+    margin-left:-50px;
+    transition:1s;
+}
+
+ul{
+    list-style-type: none;
+    margin-top: 17px;
 }
