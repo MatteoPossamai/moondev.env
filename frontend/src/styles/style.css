@@ -197,11 +197,14 @@ body{
     height:95%;
     font-weight:300;
     font-family: 'Source Sans Pro', sans-serif;
-    font-size:12pt;
+    font-size:14pt;
     resize:none;
     padding:1px;
     transition: 1s;
     border-radius: 10px;
+    max-height: none;
+    overflow: hidden;
+    resize:none;
 }
 
 #dark{
@@ -262,4 +265,9 @@ body{
 ul{
     list-style-type: none;
     margin-top: 17px;
+}
+
+.number{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size:14pt;
 }

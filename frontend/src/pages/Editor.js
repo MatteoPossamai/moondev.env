@@ -5,6 +5,7 @@ import moon from '../images/moon.png';
 const Editor = () => {
     const [text, setText] = useState('//Your code');
     const [bg, setBg] = useState('dark');
+    const [line, setLine] = useState(1);
 
     const changeStyle = (e) => {
         e.preventDefault();
@@ -16,12 +17,15 @@ const Editor = () => {
     }
 
     const handleChanges = (e) => {
-        setText(e.target.value);   
+        setText(e.target.value); 
+        setLine(countLine); 
+        console.log(line);
     }
 
     const countLine = () => {
         let lines = text.split(/\r|\r\n|\n/);
         let count = lines.length;
+        console.log(count);
         return  count;
     }
 
@@ -29,10 +33,13 @@ const Editor = () => {
         <form className="editor">
             <div className="opened">  index.html  </div>
             <div>
-                {<ul>
-                    {Array.from(Array(countLine), (e, i) => {
-                    return <li key={i}>{i}</li>
-                    })}</ul>}
+                <div class="number"> 
+                    <ul>
+                        {Array.from(Array(line), (e, i) => {
+                            return <li key={i}>{i + 1}</li>
+                        })}
+                    </ul>
+                </div>
             </div>
             <textarea name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
             id = {bg}></textarea>
