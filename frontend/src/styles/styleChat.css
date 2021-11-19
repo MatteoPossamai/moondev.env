@@ -1,0 +1,36 @@
+/*Chat*/
+.chatSpace{
+    min-height: 300px;
+    min-width: 300px;
+    height:80%;
+    width: 80%;
+    background: var(--dark-editor);
+    margin:auto;
+    border-radius:20px;
+    margin-bottom: 20px;
+}
+
+.mgsMe{
+    padding:10px;
+    background: var(--celeste);
+    height:50px;
+    width:60%;
+    margin:5px;
+    border-radius: 10px;
+}
+
+.mgsOt{
+    padding:10px;
+    background: var(--white);
+    height:50px;
+    width:60%;
+    margin:5px;
+    border-radius: 10px;
+    margin-left: 38%;
+}
+
+.buttSend{
+    background:var(--night);
+    color:var(--white);
+    border-radius: 10px;
+}

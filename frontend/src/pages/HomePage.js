@@ -1,3 +1,6 @@
+import Chat from './Chat';
+import Footer from './Footer';
+
 const HomePage =  () => {
     return (<div className="wrap">
         <div className="yFiles">
@@ -27,6 +30,8 @@ const HomePage =  () => {
         </div>
 
         <div className="cFiles"></div>
+        <Chat />
+        <Footer />
     </div>);
 };
 

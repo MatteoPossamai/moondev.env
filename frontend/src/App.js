@@ -1,8 +1,8 @@
-import './App.css';
 //import EditPage from './pages/EditPage'
 import HomePage from './pages/HomePage';
-//import Login from './pages/Login';
 import Header from './pages/Header';
+//import Login from './pages/Login';
+//import Chat from './pages/Chat';
 
 function App() {
   return (
