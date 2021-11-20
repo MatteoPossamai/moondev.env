@@ -1,4 +1,4 @@
-const Extension = require('../models/extension-module');
+const Extension = require('../models/extension-model');
 
 const getExtKeywords = (req, res) => {
     const name = req.body.name;

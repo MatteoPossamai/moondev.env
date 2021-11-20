@@ -1,11 +1,15 @@
 const Group = require('../models/group-model');
+const ChatG = require('../models/chatG-model');
 
 const createGroup = (req, res) => {
     const name = req.body.name;
     const founder = req.body.founder;
 
     const newGroup = new Group({name, founder, partecipants:[founder]});
+    const newChat = new ChatG({group:name});
+
     newGroup.save()
+        .then(() => newChat.save())
         .then(() => res.json('200'))
         .catch(err => {
             if(err.keyPattern.name){
