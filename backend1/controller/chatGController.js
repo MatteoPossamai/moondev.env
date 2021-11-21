@@ -27,13 +27,11 @@ const sendMSG = (req, res) => {
 
 const deleteMsg = (req, res) => {
     const name = req.body.name;
-    const id = req.body.id;
+    const num = req.body.num;
 
     ChatG.findOne({group:name})
-        .then(cg => Message.find(id))
-        .then(msg => {
-            cg.messages.remove(msg);
-            cg.save()
+        .then(cg => {
+            res.json(cg.messages[num]);
         })
         .then(() => res.json('Message deleted'))
         .catch(err => res.status(400).json('Error: ' + err))
@@ -43,4 +41,4 @@ module.exports = {
     getGroupMessages,
     sendMSG,
     deleteMsg,
-}
+}/*?????????*/
