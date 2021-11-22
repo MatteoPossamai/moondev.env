@@ -28,10 +28,9 @@ const Login = () => {
 
     const changeHandlerS = () => {
         setActMargin('77px');
-        console.log(email);
     }
 
-    return <LoginContest.Provider value={{email, setEmail, password, setPassword, checkPassword, setCheckPassword, name, setName}}>
+    return <LoginContest.Provider value={{email, setEmail, password, setPassword, checkPassword, setCheckPassword, name, setName, changeHandlerS}}>
     <form className='containerLogin' onSubmit={handleSubmit}>
         <img src={logo} alt="logo" />
 
@@ -55,7 +54,7 @@ const LogSub = () => {
         <input type="password" name="password" value={l.password} onChange={(e)=>l.setPassword(e.target.value)}/>
 
         <button type="submit" id="sub" >Login</button>
-        <p>Don't have an account?<button className="sign">Sign up</button></p>
+        <p>Don't have an account?<button className="sign" onClick={l.changeHandlerS}>Sign up</button></p>
     </>
 }
 

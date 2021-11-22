@@ -1,5 +1,6 @@
 import '../styles/style.css';
 import React, {useState} from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = (e) => {
     const [menuS, setMenuS] = useState(false);
@@ -19,13 +20,14 @@ const Header = (e) => {
 
         <div className={ menuS ? 'menu' : 'menuS'}>
             <button className="menuB">Settings</button>
-            <button className="menuB">Workspace</button>
+            <Link to='/edit' className="menuB">Workspace</Link>
             <button className="menuB">Chat</button>
             <button className="menuB">Logout</button>
         </div>
+
         <div className="subHeader">
             <button className="shb">Settings</button>
-            <button className="shb">Chat</button>
+            <Link to="/edit" className="link"><button className="shb">Workspace</button></Link>
             <button className="shb">About</button>
         </div>
     </>

@@ -1,8 +1,11 @@
 import Chat from './Chat';
 import Footer from './Footer';
+import Header from './Header';
 
 const HomePage =  () => {
-    return (<div className="wrap">
+    return (<>
+    <Header />
+    <div className="wrap">
         <div className="yFiles">
             <h3>Your files</h3>
             <div className="sidesaparator"></div>
@@ -32,7 +35,8 @@ const HomePage =  () => {
         <div className="cFiles"></div>
         <Chat />
         <Footer />
-    </div>);
+    </div>
+    </>);
 };
 
 export default HomePage;

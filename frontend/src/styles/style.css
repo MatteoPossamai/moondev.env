@@ -152,6 +152,7 @@ body{
     padding:30px;
     border-radius: 10px;
     min-height: 600px;
+    max-height: 700px;
     box-shadow:20px 20px var(--grey);
 }
 
@@ -192,14 +193,14 @@ body{
 }
 
 .editorText{
-    margin: auto;
+    margin-top: 13px;
     width:85%;
     height:95%;
     font-weight:300;
     font-family: 'Source Sans Pro', sans-serif;
     font-size:14pt;
     resize:none;
-    padding:1px;
+    padding:0.5px;
     transition: 1s;
     border-radius: 10px;
     max-height: none;
@@ -311,12 +312,15 @@ ul{
 }
   
 .menuB{
-    width: 110px;
+    width: 130px;
     height:40px;
+    color:var(--night);
+    text-decoration:none;
     font-family: 'Mochiy Pop P One', sans-serif;
     background: var(--celeste);
     border: var(--dark-editor) 2px solid;
     border-radius: 20px;
+    transition: 1s;
 }
 
 .menuS{
@@ -332,9 +336,22 @@ ul{
     font-family: 'Mochiy Pop P One', sans-serif;
     height:100%;
     width:33.3333%;
+    color:var(--night);
+    text-decoration:none;
     border:2px solid var(--black);
     background: var(--dark-editor);
     color:var(--white);
+    transition:1s;
+}
+
+.menuB:hover, .shb:hover{
+    background: var(--grey);
+}
+
+.link{
+    text-decoration:none;
+    color:var(--white);
+    transition:1s;
 }
 /*homepage*/
 .yFiles{

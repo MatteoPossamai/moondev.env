@@ -36,13 +36,14 @@ const Editor = () => {
                 <div class="number"> 
                     <ul>
                         {Array.from(Array(line), (e, i) => {
-                            return <li key={i}>{i + 1}</li>
+                            return <li key={i} style={{'margin-top':'-.2px'}}>{i + 1}</li>
                         })}
                     </ul>
                 </div>
             </div>
             <textarea name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
             id = {bg}></textarea>
+            
             <button onClick={changeStyle} className="buttonTheme"><img src={sun} alt="sun" className="obj"/><img src={moon} alt="moon" className="obj" id="moon"/>
             <div className={bg==='dark' ? "circleDark" : "circleLight"}></div></button>
         </form>
