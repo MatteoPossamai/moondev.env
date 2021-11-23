@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
+.about{
+    background: #afafaf;
+    margin:auto;
+    max-width:50%;
+    padding:50px;
+    border-radius:50px;
+    border: 3px solid #000;
+    margin-top: 50px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    letter-spacing: 1px;
+}
+
+.about h1{
+    margin-bottom: 50px;
+}

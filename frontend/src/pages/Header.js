@@ -19,16 +19,17 @@ const Header = (e) => {
         </div>
 
         <div className={ menuS ? 'menu' : 'menuS'}>
-            <button className="menuB">Settings</button>
+            <Link to='/about' className="menuB">About</Link>
+            <button className="menuB">Group</button>
             <Link to='/edit' className="menuB">Workspace</Link>
             <button className="menuB">Chat</button>
             <button className="menuB">Logout</button>
         </div>
 
         <div className="subHeader">
-            <button className="shb">Settings</button>
+            <button className="shb">Group</button>
             <Link to="/edit" className="link"><button className="shb">Workspace</button></Link>
-            <button className="shb">About</button>
+            <Link to="/about" className="link"><button className="shb">About</button></Link>
         </div>
     </>
 }
