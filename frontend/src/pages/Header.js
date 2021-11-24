@@ -28,7 +28,7 @@ const Header = (e) => {
 
         <div className="subHeader">
             <button className="shb">Group</button>
-            <Link to="/edit" className="link"><button className="shb">Workspace</button></Link>
+            <Link to="/edit" className="link"><button className="shb">Your workspace</button></Link>
             <Link to="/about" className="link"><button className="shb">About</button></Link>
         </div>
     </>

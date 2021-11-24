@@ -371,12 +371,22 @@ ul{
     left:50px;
     background: var(--white);
     width:30%;
+    max-height: 650px;
     box-shadow:20px 20px var(--grey);
+    overflow:auto;
 }
 
-.fileContainer, .wrap{
+.wrap{
     display:flex;
     flex-direction: row;
+}
+
+.fileContainer{
+    margin-left: 30px;
+    display:flex;
+    flex-direction: column;
+    overflow:auto;
+    max-height:540px;
 }
 
 .wrap{

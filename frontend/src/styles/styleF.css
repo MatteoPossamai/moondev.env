@@ -1,0 +1,11 @@
+.fileSingle{
+    background: var(--light-editor);
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    margin: 15px 3% 10px 0;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+    height:400px;
+    width:200px;
+}

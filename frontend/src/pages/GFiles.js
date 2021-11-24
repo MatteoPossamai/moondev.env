@@ -1,14 +1,8 @@
-import Chat from './Chat';
-import Footer from './Footer';
-import Header from './Header';
-import GList from './GList';
 import SFile from './SFile';
 
-const HomePage =  () => {
+const GFiles = () => {
     return (<>
-    <Header />
-    <div className="wrap">
-        <div className="yFiles">
+        <div className="gFiles">
          <h3 style={{'text-align': 'left'}}>File list</h3>
             <div className="sidesaparator"></div>
             <div className="fileContainer">
@@ -19,14 +13,7 @@ const HomePage =  () => {
              <button className="buttSendA1">Enter Group Workspace</button>
             </div>
         </div>
+    </>)
+}
 
-        <GList />
-
-        <div className="cFiles"></div>
-        <Chat />
-        <Footer />
-    </div>
-    </>);
-};
-
-export default HomePage;
+export default GFiles;

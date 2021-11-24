@@ -1,0 +1,61 @@
+:root {
+    --black: #000000;
+    --white: #d2dcd2; 
+    --dark-blue: #1a3491;
+    --night: #050f30;
+    --grey: #6b728c;
+    --dark-editor:#0a1424;
+    --light-editor: #d3dbe8;    
+    --celeste: #03cafc;
+  }
+
+.group{
+    display:flex;
+    flex-direction:row;
+}
+
+.buttSendA{
+    position:absolute;
+    top: 10px;
+    right:10px;
+    background:var(--night);
+    color:var(--white);
+    border-radius: 10px;
+}
+
+.buttSendA1{
+    position:absolute;
+    top: 10px;
+    right:33%;
+    background:var(--night);
+    color:var(--white);
+    border-radius: 10px;
+}
+
+.groupP img{
+    height: 60px;
+    width:60px;
+    position: absolute;
+    left: 5px;
+    top:5px;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+
+.singleGroup{
+    height: 100px;
+    width:90%;
+    background: var(--light-editor);
+    border-radius: 5px;
+    border: 2px solid var(--black);
+    margin: 15px 3% 10px 0;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: row;
+}
+
+.interaction{
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+}
