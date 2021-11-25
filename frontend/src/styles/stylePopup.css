@@ -1,0 +1,38 @@
+.addfileV{
+    background:#fff;
+    border: 2px #000 solid;
+    border-radius: 10px;
+    height: 300px;
+    width:500px;
+    position: absolute;
+    top:30%;
+    left:40%;
+}
+
+.invisible{
+    display:none;
+}
+
+.search{
+    height:100px;
+    width:80%;
+    border:#000 2px solid;
+    border-radius:10px;
+    margin:auto;
+    margin-top:20px;
+    overflow:auto;
+    display:flex;
+    flex-direction: column;
+}
+
+.quit{
+    height:150px;
+    width:200px;
+    border:#000 2px solid;
+    border-radius:10px;
+    margin:auto;
+    background:#fff;
+    position: absolute;
+    top:30%;
+    left:40%;
+}

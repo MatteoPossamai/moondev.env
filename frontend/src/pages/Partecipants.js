@@ -13,7 +13,6 @@ const Partecipants = () => {
         </div>
         <button className="buttSendA">ADD Partecipants</button>
     </div>
-    <button className="buttSendA">Exit the group</button>
     </>)
 }
 

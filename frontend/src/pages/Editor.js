@@ -41,6 +41,7 @@ const Editor = () => {
                     </ul>
                 </div>
             </div>
+            
             <textarea name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
             id = {bg}></textarea>
             

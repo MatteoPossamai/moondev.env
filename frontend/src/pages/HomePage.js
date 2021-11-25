@@ -3,20 +3,31 @@ import Footer from './Footer';
 import Header from './Header';
 import GList from './GList';
 import SFile from './SFile';
+import AddFile from './popups/AddFile';
+import CreateGroup from './popups/CreateGroup';
+import JoinAGroup from './popups/JoinAGoup';
+import Quit from './popups/Quit';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+import '../styles/styleG.css';
+
+const PopupContest = React.createContext();
 
 const HomePage =  () => {
+    const [popup, setPopup] = useState(0);
     return (<>
+    <PopupContest.Provider value={{popup, setPopup}}>
     <Header />
     <div className="wrap">
         <div className="yFiles">
-         <h3 style={{'text-align': 'left'}}>File list</h3>
+         <h3 style={{'textAlign': 'left'}}>File list</h3>
             <div className="sidesaparator"></div>
             <div className="fileContainer">
             {Array.from(Array(8).keys()).map(n => {
                 return <SFile key={n} val={n}/>;
             })} 
-             <button className="buttSendA">ADD File</button>
-             <button className="buttSendA1">Enter Group Workspace</button>
+             <button className="buttSendA" onClick={() => setPopup(1)}>ADD File</button>
+             <Link to="/group" className="buttSendA12">Enter Your Workspace</Link>
             </div>
         </div>
 
@@ -25,8 +36,14 @@ const HomePage =  () => {
         <div className="cFiles"></div>
         <Chat />
         <Footer />
+        <AddFile obj="h"/>{/*1*/}
+        <CreateGroup />{/*2*/}
+        <JoinAGroup />{/*3*/}
+        <Quit obj="h"/>{/*4*/}
     </div>
+    </PopupContest.Provider>
     </>);
 };
 
 export default HomePage;
+export {PopupContest};

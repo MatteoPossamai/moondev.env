@@ -1,3 +1,4 @@
+import Message from './Message';
 import '../styles/style.css';
 import '../styles/styleChat.css';
 
@@ -13,8 +14,9 @@ const Chat = () => {
             <h3>Chat Name</h3>
         </div>
         <div className="chatSpace">
-            <p className="mgsMe">Hello</p>
-            <p className="mgsOt">Hi bro</p>
+            {/*msgMe if me, msgOt is someone else*/}
+            <Message class="mgsMe" text={"MSG1"}/>
+            <Message class="mgsOt" text={"MSG2"}/>
         </div>
         <form className="sMSG"> 
             <input type="input" style={{'border':'2px solid black'}} />

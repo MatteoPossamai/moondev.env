@@ -30,6 +30,23 @@
     background:var(--night);
     color:var(--white);
     border-radius: 10px;
+    text-decoration: none;
+}
+
+.buttSendA12{
+    padding: 4px;
+    position:absolute;
+    top: 8px;
+    right:33%;
+    background:var(--night);
+    color:var(--white);
+    border-radius: 10px;
+    text-decoration: none;
+    border:2px solid var(--grey);
+}
+
+.buttSendA12:hover{
+    color:var(--white);
 }
 
 .groupP img{
@@ -58,4 +75,18 @@
     margin: auto;
     display: flex;
     flex-direction: row;
+}
+
+.goto{
+    color:var(--black);
+    padding:5px;
+    border: 2px solid var(--black);
+    background: var(--white);
+    text-decoration: none;
+    transition:1s;
+}
+
+.goto:hover{
+    color:var(--black);
+    background: var(--grey);
 }
