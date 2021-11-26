@@ -2,6 +2,7 @@ import SFile from './SFile';
 import {useContext} from 'react';
 import {PopupContest} from './HomePage';
 import { PopupContestG } from './Group';
+import {Link} from 'react-router-dom';
 
 const GFiles = (ans) => {
     const g = useContext(PopupContestG);
@@ -16,7 +17,7 @@ const GFiles = (ans) => {
                 return <SFile key={n} val={n}/>;
             })} 
              <button className="buttSendA" onClick={() => act.setPopup(1)}>ADD File</button>
-             <button className="buttSendA1">Enter Group Workspace</button>
+             <Link to="/edit" className="buttSendA12">Enter Group Workspace</Link>
             </div>
         </div>
     </>)

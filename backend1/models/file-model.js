@@ -12,16 +12,12 @@ const FileSchema = new Schema({
     }, content: {
         type:String,
         required:true,
-    }, sharedStatus:{
-        type: String, 
-        required: true,
-        //private, group, pubblic
+    },group:{
+        type:String,
+        required:false,
     }, creator:{
         type: String,
         required: true,
-    }, group:{
-        type:String,
-        required:false,
     }
 })
 

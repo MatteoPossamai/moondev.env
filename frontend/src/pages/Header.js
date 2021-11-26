@@ -20,14 +20,13 @@ const Header = (e) => {
 
         <div className={ menuS ? 'menu' : 'menuS'}>
             <Link to='/about' className="menuB">About</Link>
-            <button className="menuB">Group</button>
+            <Link to='/contact' className="menuB">Contact</Link>
             <Link to='/edit' className="menuB">Workspace</Link>
-            <button className="menuB">Chat</button>
             <button className="menuB">Logout</button>
         </div>
 
         <div className="subHeader">
-            <button className="shb">Group</button>
+            <Link to="/contact" className="link"><button className="shb">Contact</button></Link>
             <Link to="/edit" className="link"><button className="shb">Your workspace</button></Link>
             <Link to="/about" className="link"><button className="shb">About</button></Link>
         </div>

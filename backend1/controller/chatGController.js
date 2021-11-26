@@ -31,7 +31,8 @@ const deleteMsg = (req, res) => {
 
     ChatG.findOne({group:name})
         .then(cg => {
-            res.json(cg.messages[num]);
+            cg.messages = cg.messages.filter(message=>message != cg.messages[num]);
+            cg.save();
         })
         .then(() => res.json('Message deleted'))
         .catch(err => res.status(400).json('Error: ' + err))

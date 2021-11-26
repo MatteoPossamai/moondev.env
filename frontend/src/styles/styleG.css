@@ -9,6 +9,8 @@
     --celeste: #03cafc;
   }
 
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+
 .group{
     display:flex;
     flex-direction:row;
@@ -89,4 +91,15 @@
 .goto:hover{
     color:var(--black);
     background: var(--grey);
+}
+
+.contact{
+    margin: auto;
+    background-color: var(--white);
+    padding: 20px;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    max-width:50%;
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    margin-top: 20px;
 }

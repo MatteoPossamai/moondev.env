@@ -1,14 +1,15 @@
 import '../../styles/stylePopup.css';
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import {PopupContestG} from '../Group';
 
 const AddPartecipant = () => {
-    const [visible, setVisible] = useState(false);
+    const v = useContext(PopupContestG);
     const [name, setName] = useState('');
     return (<>
-        <div className={visible ? "addfileV": "invisible"}>
+        <div className={v.popup === 5 ? "addfileV": "invisible"}>
             <div style={{'display': 'flex', 'flexDirection': 'row'}}>
                 <h3>New Partecipant</h3>
-                <button style={{'position': 'absolute', 'right':'0'}} onClick={() => setVisible(false)}>X</button>
+                <button style={{'position': 'absolute', 'right':'0'}} onClick={() => {v.setPopup(0);setName('')}}>X</button>
             </div>
             <p>Name:</p>
             <input type="text" name="name" value={name} onChange={(e)=> setName(e.target.value)}/>
@@ -19,7 +20,11 @@ const AddPartecipant = () => {
                 <button>Partecipant</button>
                 <button>Partecipant</button>
             </div>
-            <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}}>Add</button>
+            <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}}  onClick={() => {
+                v.setPopup(0);
+                setName('');
+                /*add other logic*/
+            }}>Add</button>
         </div>
     </>);
 }

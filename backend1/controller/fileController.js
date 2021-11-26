@@ -45,21 +45,43 @@ const getFilesGroup = (req,res) => {
 const createNewFile = (req, res) => {
     const name = req.body.name;
     const extension = req.body.extension;
-    const sharedStatus = req.body.sharedStatus;
     const creator = req.body.creator;
+    const group = req.body.group;
 
-    const newFile = new File({name, extension, content:'Write your code here', sharedStatus,creator, group:creator.group});
+    const newFile = new File({name, extension, content:'Write your code here',creator, group:group});
 
     newFile.save()
         .then(() => res.json('200'))
         .catch(err => res.status(400).json('ERROR:'+err))
 }
 
-//Modify the current content of the file
+const getFilesByGroup = (req, res) => {
+    const group = req.body.group;
+
+    File.find({group:group})
+        .then(files => res.json(files))
+        .catch(err => res.status(400).json('ERROR:'+err))
+}
+
+const getFilesByCreator = (req, res) => {
+    const creator = req.body.creator;
+
+    File.find({creator:creator})
+        .then(files => res.json(files))
+        .catch(err => res.status(400).json('ERROR:'+err))
+}
+
 const modifyFileContent = (req,res) => {
-    //passed active code, memorized in status
-    const actualState = req.body.code;
-    return 'Function still in development';
+    const newCode = req.body.code;
+    const id = req.body.id;
+
+    File.findOne({id:id})
+        .then(file => {
+            file.content = newCode;
+            file.save()
+        })
+        .then(() => res.json("Modified"))
+        .catch(err => res.status(400).json('ERROR:'+err))
 }
 
 const deleteFile = (req,res) => {
@@ -77,6 +99,8 @@ module.exports = {
     getFilesCreator,
     getFilesGroup,
     createNewFile, 
+    getFilesByGroup,
+    getFilesByCreator,
     modifyFileContent,
     deleteFile,
 }

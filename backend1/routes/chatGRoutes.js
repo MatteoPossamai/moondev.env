@@ -7,6 +7,6 @@ const router = express.Router();
 //routes
 router.get('/getmsg', chatGController.getGroupMessages);
 router.post('/sendmsg', chatGController.sendMSG);
-router.delete('/deletemsg', chatGController.deleteMsg);//if I don't create a msg, must cancel the nth message. must update schema
+router.delete('/deletemsg', chatGController.deleteMsg);
 
 module.exports = router;

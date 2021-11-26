@@ -7,6 +7,7 @@ import EditorPage from './EditPage';
 import Login from './Login';
 import About from './About';
 import Group from './Group';
+import Contact from './Contact';
 
 const RouterSetup = () => {
     return (
@@ -17,6 +18,7 @@ const RouterSetup = () => {
                 <Route path="login" element={<Login />} />
                 <Route path="about" element={<About />} />
                 <Route path="group" element={<Group />} />
+                <Route path="contact" element={<Contact />} />
             </Routes>
         </Router>
     );
