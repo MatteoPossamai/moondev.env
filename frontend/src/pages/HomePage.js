@@ -7,13 +7,20 @@ import AddFile from './popups/AddFile';
 import CreateGroup from './popups/CreateGroup';
 import JoinAGroup from './popups/JoinAGoup';
 import Quit from './popups/Quit';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import '../styles/styleG.css';
+import axios from 'axios';
 
 const PopupContest = React.createContext();
 
 const HomePage =  () => {
+    useEffect(() => {
+        axios.get("http://127.0.0.1:5050/file/getfilesbycreator", {"creator":"Matteo Possamai"})
+        .then(res => console.log(res))
+    
+    })
+
     const [popup, setPopup] = useState(0);
     return (<>
     <PopupContest.Provider value={{popup, setPopup}}>
@@ -23,9 +30,7 @@ const HomePage =  () => {
          <h3 style={{'textAlign': 'left'}}>File list</h3>
             <div className="sidesaparator"></div>
             <div className="fileContainer">
-            {Array.from(Array(8).keys()).map(n => {
-                return <SFile key={n} val={n}/>;
-            })} 
+            {} 
              <button className="buttSendA" onClick={() => setPopup(1)}>ADD File</button>
              <Link to="/group" className="buttSendA12">Enter Your Workspace</Link>
             </div>

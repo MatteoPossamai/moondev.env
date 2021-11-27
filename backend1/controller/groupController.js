@@ -20,6 +20,14 @@ const createGroup = (req, res) => {
         })
 }
 
+const getGroupByUser = (req, res) => {
+    const user = req.body.user;
+
+    Group.find()
+        .then(files => res.json(files))
+        .catch(err => res.status(400).json('ERROR:'+err))
+}
+
 const addUserToGroup = (req, res) => {
     const user = req.body.user;
     const group_name = req.body.group_name;
@@ -98,6 +106,7 @@ const removeFromGroup = (req, res) => {
 
 module.exports = {
     createGroup,
+    getGroupByUser,
     addUserToGroup,
     addFileToGroup,
     allGroup,
