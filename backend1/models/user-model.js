@@ -18,6 +18,7 @@ const UserSchema = new Schema({
     }, files:{
         type: Array,
         required:true,
+        default: []
     }, group:{
         type:String, 
         required:false,

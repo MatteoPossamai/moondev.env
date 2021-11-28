@@ -2,11 +2,12 @@
     background:#fff;
     border: 2px #000 solid;
     border-radius: 10px;
-    height: 300px;
-    width:500px;
+    height: fit-content;
+    width:fit-content;
     position: absolute;
     top:30%;
     left:40%;
+    padding: 30px;
 }
 
 .invisible{

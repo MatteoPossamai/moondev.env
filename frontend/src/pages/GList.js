@@ -7,9 +7,8 @@ const Glist = () => {
     let [groups, setGroups] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:5050/group/getgroupfromuser", "Matteo Possamai")
-        .then(g => {setGroups(g.data); console.log(g.data)})
+        .then(g => {setGroups(g.data)})
         .catch(err => console.log(err))
-        
     },[])
 
     const v = useContext(PopupContest);

@@ -1,13 +1,12 @@
 const User = require('../models/user-model');
-const File = require('../models/file-model');
-const Group = require('../models/group-model');
 
 const createUser = (req,res) => {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
 
-    const newUser = new User({name, email, password});
+    const newUser = new User({name:name, email:email, password:password});
+    //----
     newUser.save()
         .then(() => res.json('200'))
         .catch(err => {
@@ -19,7 +18,7 @@ const createUser = (req,res) => {
                 res.status(400).json("ERROR:"+err);
             }
         })
-}
+}//to make this function work, need at leawst there is a element is db.
 
 const verifyUser = (req, res) => {
     const email = req.body.email;
@@ -44,8 +43,17 @@ const getUsers = (req, res) => {
         .catch(err => res.status(400).json("ERROR:"+err))
 }
 
+const findUserNameByEmail = (req,res) => {
+    const email = req.body.email;
+
+    User.findOne({email:email})
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json("ERROR:"+err))
+}
+
 module.exports = {
     createUser,
     verifyUser,
     getUsers,
+    findUserNameByEmail,
 }

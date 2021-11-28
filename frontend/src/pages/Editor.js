@@ -19,7 +19,6 @@ const Editor = () => {
     const handleChanges = (e) => {
         setText(e.target.value); 
         setLine(countLine); 
-        console.log(line);
     }
 
     const countLine = () => {

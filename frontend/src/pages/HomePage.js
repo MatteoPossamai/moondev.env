@@ -2,7 +2,7 @@ import Chat from './Chat';
 import Footer from './Footer';
 import Header from './Header';
 import GList from './GList';
-import SFile from './SFile';
+//import SFile from './SFile';
 import AddFile from './popups/AddFile';
 import CreateGroup from './popups/CreateGroup';
 import JoinAGroup from './popups/JoinAGoup';
@@ -10,18 +10,30 @@ import Quit from './popups/Quit';
 import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import '../styles/styleG.css';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const PopupContest = React.createContext();
 
 const HomePage =  () => {
     useEffect(() => {
-        axios.get("http://127.0.0.1:5050/file/getfilesbycreator", {"creator":"Matteo Possamai"})
+        axios.get("http://127.0.0.1:5050/file/getfilesbycreator",{creator:"Matteo Possamai"})
         .then(res => console.log(res))
-    
+        .catch(err => console.log(err))
     })
 
     const [popup, setPopup] = useState(0);
+    const history = useNavigate ();
+    const url = (!localStorage.getItem("user")) ? '/login': '/'
+    if(url==='/login'){history(url)}
+
+    useEffect(() => {
+        let url = (!localStorage.getItem("user")) ? '/login': '/';
+        if(url==='/login'){
+            setPopup(1)
+        }
+    }, [])//this piece of code redirect to the login page
+
     return (<>
     <PopupContest.Provider value={{popup, setPopup}}>
     <Header />

@@ -19,6 +19,7 @@ const RouterSetup = () => {
                 <Route path="about" element={<About />} />
                 <Route path="group" element={<Group />} />
                 <Route path="contact" element={<Contact />} />
+                <Route path="login" element={<Login />} />
             </Routes>
         </Router>
     );

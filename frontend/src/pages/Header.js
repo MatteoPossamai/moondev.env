@@ -1,8 +1,10 @@
 import '../styles/style.css';
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
+import {PopupContest} from './HomePage';
 
 const Header = (e) => {
+    const v = useContext(PopupContest);
     const [menuS, setMenuS] = useState(false);
     const changeSM = () => {
         if(!menuS){
@@ -22,7 +24,7 @@ const Header = (e) => {
             <Link to='/about' className="menuB">About</Link>
             <Link to='/contact' className="menuB">Contact</Link>
             <Link to='/edit' className="menuB">Workspace</Link>
-            <button className="menuB">Logout</button>
+            <button className="menuB" onClick={() => {localStorage.clear();setMenuS(false);v.setPopup(1)}}>Logout</button>
         </div>
 
         <div className="subHeader">
