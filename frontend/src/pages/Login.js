@@ -58,16 +58,20 @@ const Login = () => {
 
 const LogSub = () => {
     const l = useContext(LoginContest);
-    //const history = useNavigate ();
+    const history = useNavigate ();
 
     const log = () => {
-        axios.get("http://localhost:5050/user/verify-user", {email:l.email, password:l.password})
-            .then(res => console.log(res))
-            /*
-            localStorage.setItem("user", l.email);
-            history('/')
-            */
-
+        axios.post("http://localhost:5050/user/verify-user", {email:l.email, password:l.password})
+            .then(res => {
+                if(res.data === "Verified"){
+                    localStorage.setItem("user", l.email);
+                    history('/')
+                }else if(res.data === "User not registred" || res.data === 'Uncorrect password'){
+                    l.setPopup(1);
+                    l.setEmail('');
+                    l.setPassword('')
+                }
+            })
     }
 
     return <>
@@ -86,13 +90,38 @@ const SigSub = () => {
     const history = useNavigate ();
 
     const createAndLogin = () => {
-        if(l.password === l.checkPassword){
+        if (l.password.length < 7){
+            //password too short
+            l.setPopup(4);
+            l.setEmail('');
+            l.setPassword('');
+            l.setCheckPassword('');
+            l.setName('');
+            console.log('too short')
+        }else if(l.password === l.checkPassword){
             axios.post("http://127.0.0.1:5050/user/create-user", {name:l.name,email:l.email, password:l.password})
-            localStorage.setItem("user", l.email);
-            history('/')
+            .then(res => {
+                if(res.data === "200"){
+                    //success
+                    localStorage.setItem("user", l.email);
+                    history('/')
+                }else{
+                    //user already exists
+                    l.setPopup(2);
+                    l.setEmail('');
+                    l.setPassword('');
+                    l.setCheckPassword('');
+                    l.setName('');
+                }
+            })
         }else{
-            console.log("Error")
-        }
+            //password mismatching
+            l.setPopup(3);
+            l.setEmail('');
+            l.setPassword('');
+            l.setCheckPassword('');
+            l.setName('');
+        }            
     }
 
     return <>

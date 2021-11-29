@@ -1,4 +1,5 @@
 const File = require('../models/file-model');
+const User = require('../models/user-model');
 
 //Get all files
 const getFiles = (req,res) => {
@@ -67,7 +68,7 @@ const getFilesByCreator = (req, res) => {
     const creator = req.body.creator;
 
     File.find({creator:creator})
-        .then(files => res.json(files))
+        .then(files => {res.json(files)})
         .catch(err => res.status(400).json('ERROR:'+err))
 }
 

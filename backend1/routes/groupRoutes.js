@@ -6,7 +6,7 @@ const router = express.Router();
 
 //routes
 router.get('/get-all-groups', groupController.allGroup);
-router.get('/getgroupfromuser', groupController.getGroupByUser);
+router.post('/getgroupfromuser', groupController.getGroupByUser);
 router.post('/create-group', groupController.createGroup);//(V)
 router.post('/add-user-to-group', groupController.addUserToGroup);
 router.post('/add-file-to-group', groupController.addFileToGroup);

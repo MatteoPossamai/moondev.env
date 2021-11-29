@@ -6,8 +6,8 @@ const router = express.Router();
 
 //router
 router.get('/get-users', userController.getUsers);
-router.get('/getusernamebyemail', userController.findUserNameByEmail);
-router.get('/verify-user', userController.verifyUser);
+router.post('/getusernamebyemail', userController.findUserNameByEmail);
+router.post('/verify-user', userController.verifyUser);
 router.post('/create-user', userController.createUser);//(V)
 
 module.exports = router;

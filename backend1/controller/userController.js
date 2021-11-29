@@ -6,7 +6,6 @@ const createUser = (req,res) => {
     const password = req.body.password;
 
     const newUser = new User({name:name, email:email, password:password});
-    //----
     newUser.save()
         .then(() => res.json('200'))
         .catch(err => {

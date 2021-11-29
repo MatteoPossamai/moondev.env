@@ -11,7 +11,7 @@ router.get('/getfilecontent', fileController.getFilesContent);
 router.get('/getfilecreator', fileController.getFilesCreator);
 router.get('/getfilegroup', fileController.getFilesGroup);
 router.get('/getfilesbygroup', fileController.getFilesByGroup);
-router.get('/getfilesbycreator', fileController.getFilesByCreator);
+router.post('/getfilesbycreator', fileController.getFilesByCreator);
 router.post('/createnewfile', fileController.createNewFile); //(V)
 router.put('/modifyfilecontent', fileController.modifyFileContent);
 router.delete('/delete-file', fileController.deleteFile);

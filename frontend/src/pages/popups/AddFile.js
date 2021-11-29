@@ -25,10 +25,15 @@ const AddFile = (ans) => {
             <select id="sel" value={extension} onChange={e => setExtension(e.target.value)}>
                 <option>HTML</option>
                 <option>CSS</option>
-                <option>Python</option>
+                <option>js</option>
+                <option>php</option>
+                <option>java</option>
+                <option>py</option>
+                <option>go</option>
+                <option>c</option>
             </select>
             <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}} onClick={() => {
-                axios.post('http://localhost:5050/file/createnewfile', {name, extension, creator:"Matteo Possamai"})/*must modify, and set creator to logged user*/
+                axios.post('http://localhost:5050/file/createnewfile', {name, extension, creator:localStorage.getItem('user')})
                 act.setPopup(0);
                 setName('');
             }}>Create</button>

@@ -23,7 +23,7 @@ const createGroup = (req, res) => {
 const getGroupByUser = (req, res) => {
     const user = req.body.user;
 
-    Group.find()
+    Group.find({partecipants: user})
         .then(files => res.json(files))
         .catch(err => res.status(400).json('ERROR:'+err))
 }

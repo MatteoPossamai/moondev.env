@@ -35,7 +35,3 @@ app.use('/chat', chatGRouter);
 app.listen(port, () => {console.log(`Server listening on port ${port}`)});
 
 //https://www.youtube.com/watch?v=hKYjSgyCd60
-
-//must connect group and chat, because otherwise, it will always be empty.
-//every chat points to a chat. every group knows it has a chat with the same 
-//name. First, must inizialize the chat. Otherwise, chat does not exist
