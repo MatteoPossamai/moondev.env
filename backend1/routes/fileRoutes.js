@@ -14,6 +14,6 @@ router.get('/getfilesbygroup', fileController.getFilesByGroup);
 router.post('/getfilesbycreator', fileController.getFilesByCreator);
 router.post('/createnewfile', fileController.createNewFile); //(V)
 router.put('/modifyfilecontent', fileController.modifyFileContent);
-router.delete('/delete-file', fileController.deleteFile);
+router.post('/delete-file', fileController.deleteFile);
 
 module.exports = router;

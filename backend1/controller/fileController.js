@@ -86,9 +86,9 @@ const modifyFileContent = (req,res) => {
 }
 
 const deleteFile = (req,res) => {
-    const name = req.body.name;
+    const id = req.body.name;
 
-    File.findOneAndDelete({name:name})
+    File.findOneAndDelete({id:id})
         .then(() => res.json("Deleted"))
         .catch(err => res.status(400).json('ERROR:'+err))
 }

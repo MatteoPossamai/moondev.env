@@ -43,7 +43,7 @@ const SFile = (n) => {
         <div className="fileSingle">
             <img src={currentImg} alt="img" style={{'height':'50px', 'width':'50px','position':'relative', 'top':'5', 'left':'0'}} />
             <h3>{n.name}</h3>
-            <button style={{'height':'50%', 'marginTop':'10px'}} onClick={() => {v.setPopup(6);console.log(v.popup)}}>X</button>
+            <button style={{'height':'50%', 'marginTop':'10px'}} onClick={() => {v.setPopup(6); v.setSelectFile(n.ident + "")}}>X</button>
         </div>
     </>
 }

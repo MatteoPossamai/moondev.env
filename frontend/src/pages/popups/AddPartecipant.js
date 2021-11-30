@@ -13,13 +13,6 @@ const AddPartecipant = () => {
             </div>
             <p>Name:</p>
             <input type="text" name="name" value={name} onChange={(e)=> setName(e.target.value)}/>
-            <div className="search">
-                <button>Partecipant</button>
-                <button>Partecipant</button>
-                <button>Partecipant</button>
-                <button>Partecipant</button>
-                <button>Partecipant</button>
-            </div>
             <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}}  onClick={() => {
                 v.setPopup(0);
                 setName('');

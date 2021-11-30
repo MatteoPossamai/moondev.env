@@ -17,7 +17,7 @@ const RouterSetup = () => {
                 <Route path="edit" element={<EditorPage />} />
                 <Route path="login" element={<Login />} />
                 <Route path="about" element={<About />} />
-                <Route path="group" element={<Group />} />
+                <Route path="group/:id" element={<Group />} />
                 <Route path="contact" element={<Contact />} />
                 <Route path="login" element={<Login />} />
             </Routes>

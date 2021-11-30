@@ -7,6 +7,9 @@ import LUnable from './popups/LUnable';
 import LNEExists from './popups/LNEExist';
 import LPM from './popups/LPM';
 import LPTS from './popups/LPTS';
+import moon from '../images/moonBG.png';
+
+var sha256 = require('js-sha256').sha256;
 
 const LoginContest = React.createContext();
 
@@ -38,6 +41,7 @@ const Login = () => {
     }
 
     return <LoginContest.Provider value={{email, setEmail, password, setPassword, checkPassword, setCheckPassword, name, setName, changeHandlerS, popup, setPopup}}>
+    <img src={moon} alt={moon} className="moon" />
     <form className='containerLogin' onSubmit={handleSubmit}>
         <img src={logo} alt="logo" />
 
@@ -59,9 +63,11 @@ const Login = () => {
 const LogSub = () => {
     const l = useContext(LoginContest);
     const history = useNavigate ();
+    const [visible, setVisible] = useState(false);
 
     const log = () => {
-        axios.post("http://localhost:5050/user/verify-user", {email:l.email, password:l.password})
+        console.log(sha256(l.password))
+        axios.post("http://localhost:5050/user/verify-user", {email:l.email, password:sha256(l.password)})
             .then(res => {
                 if(res.data === "Verified"){
                     localStorage.setItem("user", l.email);
@@ -78,8 +84,8 @@ const LogSub = () => {
         <p>Email:</p>
         <input type="text" name="email" value={l.email} onChange={(e)=> l.setEmail(e.target.value)}/>
         <p>Password:</p>
-        <input type="password" name="password" value={l.password} onChange={(e)=>l.setPassword(e.target.value)}/>
-
+        <input type={visible ? "text":"password"} name="password" value={l.password} onChange={(e)=>l.setPassword(e.target.value)}/>
+        <button style={{"height":"30px", "width":"80px"}} onClick={() => setVisible(!visible)}>{visible ? "Hide": "Show"}</button>
         <button type="submit" id="sub" onClick={log}>Login</button>
         <p>Don't have an account?<button className="sign" onClick={l.changeHandlerS}>Sign up</button></p>
     </>
@@ -88,6 +94,7 @@ const LogSub = () => {
 const SigSub = () => {
     const l = useContext(LoginContest);
     const history = useNavigate ();
+    const [visible, setVisible] = useState(false);
 
     const createAndLogin = () => {
         if (l.password.length < 7){
@@ -99,7 +106,7 @@ const SigSub = () => {
             l.setName('');
             console.log('too short')
         }else if(l.password === l.checkPassword){
-            axios.post("http://127.0.0.1:5050/user/create-user", {name:l.name,email:l.email, password:l.password})
+            axios.post("http://127.0.0.1:5050/user/create-user", {name:l.name,email:l.email, password:sha256(l.password)})
             .then(res => {
                 if(res.data === "200"){
                     //success
@@ -130,10 +137,10 @@ const SigSub = () => {
         <p>Email:</p>
         <input type="text" name="email" value={l.email} onChange={(e)=> l.setEmail(e.target.value)}/>
         <p>Password:</p>
-        <input type="password" name="password" value={l.password} onChange={(e)=>l.setPassword(e.target.value)}/>
+        <input type={visible ? "text":"password"} name="password" value={l.password} onChange={(e)=>l.setPassword(e.target.value)}/>
         <p>Retype password:</p>
-        <input type="password" name="checkPassword" value={l.checkPassword} onChange={(e)=>l.setCheckPassword(e.target.value)}/>
-
+        <input type={visible ? "text":"password"} name="checkPassword" value={l.checkPassword} onChange={(e)=>l.setCheckPassword(e.target.value)}/>
+        <button style={{"height":"30px", "width":"80px"}} onClick={() => setVisible(!visible)}>{visible ? "Hide": "Show"}</button>
         <button type="submit" id="sub" onClick={createAndLogin}>Sign Up</button>
     </>
 }

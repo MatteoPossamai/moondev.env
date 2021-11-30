@@ -17,7 +17,7 @@ const Header = (e) => {
     return <>
         <div className="header">
             <h1>moondev.env</h1>
-            <button className="userButton" onClick={changeSM}>{localStorage.getItem('user')[0]}</button>
+            <button className="userButton" onClick={changeSM}>{localStorage.getItem('user') ? localStorage.getItem('user')[0] : "U"}</button>
         </div>
 
         <div className={ menuS ? 'menu' : 'menuS'}>

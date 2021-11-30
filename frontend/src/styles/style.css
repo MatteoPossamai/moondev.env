@@ -358,9 +358,10 @@ ul{
     border-radius: 20px;
     position:relative;
     top:15px;
-    left:15px;
+    left:50px;
     background: var(--white);
     width:30%;
+    min-height:500px;
     box-shadow:20px 20px var(--grey);
 }
 
@@ -368,7 +369,7 @@ ul{
     border-radius: 20px;
     position:relative;
     top:15px;
-    left:50px;
+    left:90px;
     background: var(--white);
     width:30%;
     max-height: 650px;
@@ -409,4 +410,20 @@ ul{
 .footer p{
     margin-top: 20px;
     color: var(--white);
+}
+
+.moon{
+    position:absolute;
+    top:-30px;
+    left:20px;
+    z-index:-1;
+    transform: scale(2);
+}
+
+.moon2{
+    position:absolute;
+    top:180px;
+    right:120px;
+    z-index:-1;
+    transform: scale(1.5);
 }

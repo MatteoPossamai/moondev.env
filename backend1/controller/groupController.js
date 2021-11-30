@@ -3,7 +3,7 @@ const ChatG = require('../models/chatG-model');
 
 const createGroup = (req, res) => {
     const name = req.body.name;
-    const founder = req.body.founder;
+    const founder = req.body.founder;//must be email
 
     const newGroup = new Group({name, founder, partecipants:[founder]});
     const newChat = new ChatG({group:name});
@@ -18,6 +18,14 @@ const createGroup = (req, res) => {
                 res.status(400).json("ERROR:"+err);
             }
         })
+}
+
+const getGroup = (req, res) => {
+    const id = req.params.id;
+
+    Group.findOne({id:id})
+        .then(group => {res.json(group)})
+        .catch(err => res.status(400).json('ERROR:'+err))
 }
 
 const getGroupByUser = (req, res) => {
@@ -89,9 +97,9 @@ const removeFileFromGroup = (req, res) => {
 
 const removeFromGroup = (req, res) => {
     const user = req.body.user;
-    const group_name = req.body.group_name;
+    const group_id = req.body.group_id;
 
-    Group.findOne({name:group_name})
+    Group.findOne({id:group_id})
         .then(group => {
             if(group.partecipants.includes(user)){
                 group.partecipants.remove(user);
@@ -107,6 +115,7 @@ const removeFromGroup = (req, res) => {
 module.exports = {
     createGroup,
     getGroupByUser,
+    getGroup,
     addUserToGroup,
     addFileToGroup,
     allGroup,
