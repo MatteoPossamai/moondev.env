@@ -10,9 +10,10 @@ router.get('/getfile', fileController.getFilesById);
 router.get('/getfilecontent', fileController.getFilesContent);
 router.get('/getfilecreator', fileController.getFilesCreator);
 router.get('/getfilegroup', fileController.getFilesGroup);
-router.get('/getfilesbygroup', fileController.getFilesByGroup);
+router.post('/getfilesbygroup', fileController.getFilesByGroup);
 router.post('/getfilesbycreator', fileController.getFilesByCreator);
 router.post('/createnewfile', fileController.createNewFile); //(V)
+router.post('/filebykey', fileController.fileByKey);
 router.put('/modifyfilecontent', fileController.modifyFileContent);
 router.post('/delete-file', fileController.deleteFile);
 

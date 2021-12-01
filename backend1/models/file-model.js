@@ -5,19 +5,24 @@ const FileSchema = new Schema({
     name: {
         type: String,
         required: true,
-        minlength:3,
+        minlength:1,
+        unique:false,
     }, extension: {
         type:String,
         required:true,
+        unique:false,
     }, content: {
         type:String,
         required:true,
+        unique:false,
     },group:{
         type:String,
         required:false,
+        unique:false,
     }, creator:{
         type: String,
         required: true,
+        unique:false,
     }
 })
 

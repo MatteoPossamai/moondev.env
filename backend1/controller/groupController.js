@@ -38,7 +38,7 @@ const getGroupByUser = (req, res) => {
 
 const addUserToGroup = (req, res) => {
     const user = req.body.user;
-    const group_name = req.body.group_name;
+    const group_name = req.body.name;
 
     Group.findOne({ name:group_name})
         .then(group => {
@@ -56,9 +56,9 @@ const addUserToGroup = (req, res) => {
 
 const addFileToGroup = (req, res) => {
     const file = req.body.file;
-    const group_name = req.body.group_name;
+    const group_id = req.body.group_id;
 
-    Group.findOne({ name:group_name})
+    Group.findOne({ id:group_id})
         .then(group => {
             if(!group.files.includes(file)){
                 group.files.push(file);
@@ -97,7 +97,7 @@ const removeFileFromGroup = (req, res) => {
 
 const removeFromGroup = (req, res) => {
     const user = req.body.user;
-    const group_id = req.body.group_id;
+    const group_id = req.body.id;
 
     Group.findOne({id:group_id})
         .then(group => {

@@ -5,7 +5,6 @@ import {PopupContestG} from './Group';
 const Partecipants = (n) => {
     const v = useContext(PopupContestG);
     const res = n.group.partecipants ? n.group.partecipants : []; 
-    console.log(res)
     return (<>
     <div className="yFiles">
             <h3>Partecipants</h3>

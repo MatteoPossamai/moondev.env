@@ -28,7 +28,7 @@ const HomePage =  () => {
         })
         .catch(err => console.log(err))
     }, [popup])
-
+    //------------
     const history = useNavigate ();
     const url = (!localStorage.getItem("user")) ? '/login': '/'
     if(url==='/login'){history(url)}
@@ -39,7 +39,7 @@ const HomePage =  () => {
             setPopup(1)
         }
     }, [])//this piece of code redirect to the login page
-
+    //-------------
     return (<>
     <PopupContest.Provider value={{popup, setPopup, selectFile, setSelectFile, selectGroup, setSelectGroup}}>
     <Header />

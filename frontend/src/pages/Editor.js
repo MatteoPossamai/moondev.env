@@ -32,10 +32,10 @@ const Editor = () => {
         <form className="editor">
             <div className="opened">  index.html  </div>
             <div>
-                <div class="number"> 
+                <div className="number"> 
                     <ul>
                         {Array.from(Array(line), (e, i) => {
-                            return <li key={i} style={{'margin-top':'-.2px'}}>{i + 1}</li>
+                            return <li key={i} style={{'marginTop':'-.2px'}}>{i + 1}</li>
                         })}
                     </ul>
                 </div>

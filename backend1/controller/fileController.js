@@ -1,5 +1,5 @@
 const File = require('../models/file-model');
-const User = require('../models/user-model');
+var sha256 = require('js-sha256').sha256;
 
 //Get all files
 const getFiles = (req,res) => {
@@ -85,6 +85,13 @@ const modifyFileContent = (req,res) => {
         .catch(err => res.status(400).json('ERROR:'+err))
 }
 
+const fileByKey = (req,res) => {
+    const key = req.body.key;
+
+    File.findOne({key:key})
+        .then(file => res.json(file))
+}
+
 const deleteFile = (req,res) => {
     const id = req.body.name;
 
@@ -104,4 +111,5 @@ module.exports = {
     getFilesByCreator,
     modifyFileContent,
     deleteFile,
+    fileByKey,
 }
