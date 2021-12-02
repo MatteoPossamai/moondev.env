@@ -15,7 +15,8 @@ const AddPartecipant = (g) => {
             <p>Name:</p>
             <input type="text" name="name" value={name} onChange={(e)=> setName(e.target.value)}/>
             <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}}  onClick={() => {
-                axios.post("http://localhost:5050/group/add-user-to-group", {user:name, group_id:g.id})
+                console.log({user:name, group_id:v.group._id})
+                axios.post("http://localhost:5050/group/add-user-to-group", {user:name, group_id:v.group._id})
                 v.setPopup(0);
                 v.recharge();
                 setName('');

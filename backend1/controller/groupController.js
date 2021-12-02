@@ -5,7 +5,8 @@ const createGroup = (req, res) => {
     const name = req.body.name;
     const founder = req.body.founder;//must be email
 
-    const newGroup = new Group({name, founder, partecipants:[founder]});
+    const newGroup = new Group({name, partecipants:[]});
+    newGroup.partecipants.push(founder)
     const newChat = new ChatG({group:name});
 
     newGroup.save()
@@ -38,10 +39,11 @@ const getGroupByUser = (req, res) => {
 
 const addUserToGroup = (req, res) => {
     const user = req.body.user;
-    const group_name = req.body.name;
+    const group_id = req.body.group_id;
 
-    Group.findOne({ name:group_name})
+    Group.findById(group_id)
         .then(group => {
+            console.log(group);
             if(!group.partecipants.includes(user)){
                 group.partecipants.push(user);
                 group.save()
@@ -97,9 +99,9 @@ const removeFileFromGroup = (req, res) => {
 
 const removeFromGroup = (req, res) => {
     const user = req.body.user;
-    const group_id = req.body.id;
+    const group_id = req.body.group_id;
 
-    Group.findOne({id:group_id})
+    Group.findById(group_id)
         .then(group => {
             if(group.partecipants.includes(user)){
                 group.partecipants.remove(user);

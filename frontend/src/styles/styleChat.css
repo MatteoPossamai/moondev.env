@@ -8,6 +8,8 @@
     margin:auto;
     border-radius:20px;
     margin-bottom: 20px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .mgsMe{
@@ -17,6 +19,7 @@
     width:60%;
     margin:5px;
     border-radius: 10px;
+    margin-left: 38%;
 }
 
 .mgsOt{
@@ -26,11 +29,27 @@
     width:60%;
     margin:5px;
     border-radius: 10px;
-    margin-left: 38%;
 }
 
 .buttSend{
     background:var(--night);
     color:var(--white);
     border-radius: 10px;
+}
+
+.containerLogin1{
+    background-color:var(--white);
+    display: flex;
+    flex-direction:column;
+    letter-spacing:1px;
+    margin:auto;
+    padding: 30px;
+    text-align:center;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    margin-top: 150px;
+    border: var(--white) solid 2px;
+    max-width: 450px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 30px;
+    max-height: 500px;
 }

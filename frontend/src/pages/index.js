@@ -9,6 +9,8 @@ import About from './About';
 import Group from './Group';
 import Contact from './Contact';
 
+const WorkspaceContext = React.createContext();
+
 const RouterSetup = () => {
     return (
         <Router>
@@ -27,3 +29,4 @@ const RouterSetup = () => {
 
 
 export default RouterSetup;
+export {WorkspaceContext};

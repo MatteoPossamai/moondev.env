@@ -5,7 +5,7 @@ const chatGController = require('../controller/chatGController');
 const router = express.Router();
 
 //routes
-router.get('/getmsg', chatGController.getGroupMessages);
+router.get('/getmsg/:id', chatGController.getGroupMessages);
 router.post('/sendmsg', chatGController.sendMSG);
 router.delete('/deletemsg', chatGController.deleteMsg);
 

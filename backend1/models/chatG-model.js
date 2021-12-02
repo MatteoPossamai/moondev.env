@@ -5,6 +5,7 @@ const ChatGSchema = new Schema({
     group:{
         type:String,
         required:true,
+        unique:true,
     }, messages:{
         type:Array,
         required:true,

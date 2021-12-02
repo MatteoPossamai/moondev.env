@@ -2,10 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
-    group:{
-        type:String,
-        required:true, 
-    }, sender:{
+    sender:{
         type:String,
         required:true
     }, text:{

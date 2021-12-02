@@ -26,7 +26,6 @@ const HomePage =  () => {
         .then(res => {
             setFile(res.data);
         })
-        .catch(err => console.log(err))
     }, [popup])
     //------------
     const history = useNavigate ();

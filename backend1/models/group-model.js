@@ -6,9 +6,6 @@ const GroupSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-    },founder:{
-        type:String,
-        required: true, 
     }, partecipants:{
         type: Array,
         required:false,

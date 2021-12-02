@@ -2,7 +2,7 @@ const ChatG = require('../models/chatG-model');
 const Message = require('../models/message-model');
 
 const getGroupMessages = (req, res) => {
-    const name = req.body.name;
+    const name = req.params.id;
     
     ChatG.findOne({group:name})
         .then(cg => res.json(cg.messages))
@@ -14,7 +14,7 @@ const sendMSG = (req, res) => {
     const sender = req.body.sender;
     const text = req. body.text;
 
-    const MSG = new Message({group:name, sender, text});
+    const MSG = new Message({sender, text});
 
     ChatG.findOne({group:name})
         .then(cg => {

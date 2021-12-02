@@ -34,7 +34,7 @@ const AddFile = (ans) => {
             </select>
             <button style={{'position': 'absolute', 'right':'0', 'bottom':'0'}} onClick={() => {
                 axios.post('http://localhost:5050/file/createnewfile', {name, extension, creator:localStorage.getItem('user'), group:g ? g.group : ""})
-                act.setPopup(0);
+                    .then(() => act.setPopup(0))
                 setName('');
             }}>Create</button>
         </div>

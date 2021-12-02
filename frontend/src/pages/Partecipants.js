@@ -1,10 +1,8 @@
 import '../styles/styleG.css';
-import {useContext} from 'react';
-import {PopupContestG} from './Group';
 
 const Partecipants = (n) => {
-    const v = useContext(PopupContestG);
     const res = n.group.partecipants ? n.group.partecipants : []; 
+    
     return (<>
     <div className="yFiles">
             <h3>Partecipants</h3>
@@ -16,7 +14,6 @@ const Partecipants = (n) => {
                     })
                 }
             </div>
-        <button className="buttSendA" onClick={() => {v.setPopup(5)}}>ADD Partecipants</button>
     </div>
     </>)
 }
