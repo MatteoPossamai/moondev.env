@@ -11,7 +11,7 @@ const getFiles = (req,res) => {
 
 //Get all the information about a file
 const getFilesById = (req,res) => {
-    const id = req.body.id;
+    const id = req.params.id;
     File.findById(id)
         .then(file => res.json(file))
         .catch(err => res.status(400).json('ERROR:'+err))

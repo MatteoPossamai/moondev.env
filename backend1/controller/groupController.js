@@ -43,7 +43,6 @@ const addUserToGroup = (req, res) => {
 
     Group.findById(group_id)
         .then(group => {
-            console.log(group);
             if(!group.partecipants.includes(user)){
                 group.partecipants.push(user);
                 group.save()

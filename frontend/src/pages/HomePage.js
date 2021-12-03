@@ -21,6 +21,7 @@ const HomePage =  () => {
     const [file, setFile] = useState([]);
     const [selectFile, setSelectFile] = useState('');
     const [selectGroup, setSelectGroup] = useState('');
+    localStorage.setItem("isG", "0");
     useEffect(() => {
         axios.post("http://127.0.0.1:5050/file/getfilesbycreator",{creator:localStorage.getItem('user')})
         .then(res => {
@@ -51,7 +52,7 @@ const HomePage =  () => {
                 return <SFile key={f._id} name={f.name} img={f.extension} ident={f._id} />
             })} 
              <button className="buttSendA" onClick={() => setPopup(1)}>ADD File</button>
-             <Link to="/edit" className="buttSendA12">Enter Your Workspace</Link>
+             <Link to="/edit" params ={{group:localStorage.getItem('user')}} className="buttSendA12">Enter Your Workspace</Link>
             </div>
         </div>
 

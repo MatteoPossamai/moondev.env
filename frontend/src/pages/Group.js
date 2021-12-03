@@ -16,7 +16,10 @@ import DeleteFile from './popups/DeleteFile';
 const PopupContestG = React.createContext();
 
 const Group = () => {
+    
+    localStorage.setItem('isG',"1")
     const id = useLocation().pathname.split("group/").pop();
+    localStorage.setItem('gruop', id);
     const [popup, setPopup] = useState(0);
     const [group, setGroup] = useState({});
     const [selectFile, setSelectFile] = useState('');

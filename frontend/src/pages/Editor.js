@@ -1,8 +1,10 @@
-import { useState } from "react";
 import sun from '../images/sun.png';
 import moon from '../images/moon.png';
+import {useState, useContext} from 'react';
+import {WContext} from './EditPage';
 
 const Editor = () => {
+    const v = useContext(WContext);
     const [text, setText] = useState('//Your code');
     const [bg, setBg] = useState('dark');
     const [line, setLine] = useState(1);
@@ -30,7 +32,7 @@ const Editor = () => {
 
     return <>
         <form className="editor">
-            <div className="opened">  index.html  </div>
+            <div className="opened">  {v.activeFile}  </div>
             <div>
                 <div className="number"> 
                     <ul>
