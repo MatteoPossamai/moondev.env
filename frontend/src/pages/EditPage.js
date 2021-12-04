@@ -6,8 +6,7 @@ import React,  {useState} from 'react';
 const WContext = React.createContext();
 
 const EditPage = () => {
-    const {activeFile, setActiveFile} = useState('Empty');
-
+    const [activeFile, setActiveFile] = useState('');
 
     return <>
         <WContext.Provider value={{activeFile, setActiveFile}}>

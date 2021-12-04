@@ -27,7 +27,7 @@ const Sidebar = () => {
             <div className="sidesaparator"></div>
             {
                 file.map(f=>{
-                    return <button key={f._id} onClick={() => v.setActiveFile(f)} style={{'padding':"10px"}}>
+                    return <button key={f._id} onClick={() => v.setActiveFile(f)} style={{'padding':"10px", "marginTop": "5px"}}>
                         {f.name + "." + f.extension}</button>
                 })
             }

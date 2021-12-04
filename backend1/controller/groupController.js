@@ -39,9 +39,9 @@ const getGroupByUser = (req, res) => {
 
 const addUserToGroup = (req, res) => {
     const user = req.body.user;
-    const group_id = req.body.group_id;
+    const group_id = req.body.group_name;
 
-    Group.findById(group_id)
+    Group.findOne({name:group_id})
         .then(group => {
             if(!group.partecipants.includes(user)){
                 group.partecipants.push(user);

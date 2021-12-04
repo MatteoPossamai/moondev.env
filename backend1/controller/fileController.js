@@ -72,16 +72,24 @@ const getFilesByCreator = (req, res) => {
         .catch(err => res.status(400).json('ERROR:'+err))
 }
 
+const fileText = (req, res) => {
+    const id = req.params.id
+
+    File.findById(id)
+        .then(file => res.json(file.content))
+        .catch(err => res.status(400).json('ERROR:'+err))
+}
+
 const modifyFileContent = (req,res) => {
     const newCode = req.body.code;
     const id = req.body.id;
 
-    File.findOne({id:id})
+    File.findById(id)
         .then(file => {
             file.content = newCode;
             file.save()
         })
-        .then(() => res.json("Modified"))
+        .then(() => res.json("200"))
         .catch(err => res.status(400).json('ERROR:'+err))
 }
 
@@ -112,4 +120,5 @@ module.exports = {
     modifyFileContent,
     deleteFile,
     fileByKey,
+    fileText,
 }

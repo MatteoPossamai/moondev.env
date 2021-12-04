@@ -9,7 +9,6 @@ const Glist = () => {
     useEffect(() => {
         axios.post("http://localhost:5050/group/getgroupfromuser", {user:localStorage.getItem('user')})
         .then(g => {setGroups(g.data)})
-        .catch(err => console.log(err))
     },[v.popup])
 
     return (<>

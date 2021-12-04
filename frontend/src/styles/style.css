@@ -144,6 +144,8 @@ body{
 }
 
 .sidebar{
+    display:flex;
+    flex-direction:column;
     margin-left:10px;
     letter-spacing: 3px;
     font-family: 'Mochiy Pop P One', sans-serif;
