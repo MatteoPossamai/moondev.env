@@ -3,12 +3,42 @@ import moon from '../images/moon.png';
 import {useState, useEffect, useContext} from 'react';
 import {WContext} from './EditPage';
 import axios from 'axios';
+import { io } from "socket.io-client";
+import { useNavigate   } from 'react-router-dom';
+import home from '../images/home.png';
+import back from '../images/back-arrow.png';
 
 const Editor = () => {
     const v = useContext(WContext);
-    const [text, setText] = useState('//Your code');
+    const [text, setText] = useState('');
     const [bg, setBg] = useState('dark');
-    const [line, setLine] = useState(1);
+    const socket = io("http://localhost:5050");
+
+    useEffect(() => {
+        if(localStorage.getItem('isG') === '1'){       
+
+            socket.on("connect", () => {
+                socket.emit("groupName", {id:localStorage.getItem('gruop')})
+            })
+
+            socket.on("text-change", obj => {
+                //console.log(socket.id !== obj.emitter)
+                console.log(obj.text)
+                if(socket.id !== obj.emitter){
+                    setText(obj.text);
+                }
+            })
+
+        }
+    }, [socket])
+
+    const handleChanges = (e) => {
+        setText(e.target.value)
+        socket.emit("text-change", e.target.value)
+        if(v.activeFile){
+            axios.put('http://localhost:5050/file/modifyfilecontent', {id:v.activeFile._id, code: e.target.value}) 
+        }
+    }
 
     useEffect(() => {
         if(v.activeFile)
@@ -25,32 +55,26 @@ const Editor = () => {
         }
     }
 
-    const handleChanges = (e) => {
-        setText(e.target.value);
-        if(v.activeFile){
-            axios.put('http://localhost:5050/file/modifyfilecontent', {id:v.activeFile._id, code: e.target.value})
-            .then(() => setLine(countLine)) 
-        }
+    const history = useNavigate ();
+
+    const homeG = () => {
+        socket.disconnect();
+        socket.close();
+        history("/");
     }
 
-    const countLine = () => {
-        let lines = text.split(/\r|\r\n|\n/);
-        let count = lines.length;
-        return  count;
+    const backG = () => {
+        socket.disconnect();
+        socket.close();
+        history(`/group/${localStorage.getItem('gruop')}`);
     }
 
+    //console.log(text)
     return <>
+        <button onClick={homeG} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"10px", "left":"10px"}}><img src={home} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"0px", "left":"0px"}} alt="home"/></button>
+        <button onClick={backG} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"10px", "left":"80px"}}><img src={back} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"0px", "left":"0px"}} alt="home" /></button>
         <form className="editor">
             <div className="opened">  {v.activeFile.name ? v.activeFile.name + "." + v.activeFile.extension : ""}  </div>
-            <div>
-                <div className="number"> 
-                    <ul>
-                        {Array.from(Array(line), (e, i) => {
-                            return <li key={i} style={{'marginTop':'-.2px'}}>{i + 1}</li>
-                        })}
-                    </ul>
-                </div>
-            </div>
             
             <textarea name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
             id = {bg}></textarea>
