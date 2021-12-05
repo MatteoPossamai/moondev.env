@@ -32,6 +32,29 @@ app.use('/group', groupRouter);
 app.use('/ext', extensionRouter);
 app.use('/chat', chatGRouter);
 
-app.listen(port, () => {console.log(`Server listening on port ${port}`)});
+const httpServer = app.listen(port, () => {console.log(`Server listening on port ${port}`)});
 
-//https://www.youtube.com/watch?v=hKYjSgyCd60
+//live Editor
+
+const { Server } = require("socket.io");
+const io = new Server(httpServer, {
+    cors : {
+        origin: ["http://localhost:3000", "http://localhost:3001"],
+        methods:["GET", "POST"]
+    }
+} );
+
+io.on("connection", (socket) => {
+    let currentRoom = "";
+
+    socket.on("groupName", msg => {
+        socket.join(msg.id + "")
+        currentRoom = msg.id
+    })
+
+    socket.on("text-change", newText => {
+        //console.log(newText)
+        io.to(currentRoom).emit( "text-change", {text:newText, emitter:socket.id})
+    })
+
+})

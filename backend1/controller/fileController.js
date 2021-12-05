@@ -3,7 +3,6 @@ var sha256 = require('js-sha256').sha256;
 
 //Get all files
 const getFiles = (req,res) => {
-    const id = req.body.id;
     File.find()
         .then(file => res.json(file))
         .catch(err => res.status(400).json('ERROR:'+err))
