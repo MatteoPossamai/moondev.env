@@ -4,26 +4,57 @@ import '../styles/styleChat.css';
 import { PopupContestG } from './Group';
 import {useContext, useState, useEffect} from 'react';
 import axios from 'axios';
+import { io } from "socket.io-client";
 
 const Chat = () => {
     const v = useContext(PopupContestG);
     const [msg, setMsg] = useState([]);
     const [message, setMessage] = useState('');
+    const socket = io("http://localhost:5050");
 
-    useEffect(() => {
+    const refresh = (() => {
         if(v.group.name){
             axios.get(`http://localhost:5050/chat/getmsg/${v.group.name}`)
                 .then(group => {
                     setMsg(group.data)
                 })
         }
-    }, [v.group.name, message])
+    })
+
+    useEffect(() => {
+        refresh()
+    // eslint-disable-next-line
+    }, [])
+
+    useEffect(() => {
+        if(localStorage.getItem('isG') === '1'){       
+
+            socket.on("connect", () => {
+                socket.emit("groupName", {id:localStorage.getItem('gruop')})
+            })
+
+            socket.on("message", cond => {
+                console.log(cond)
+                if(cond){
+                    refresh();
+                }
+            })
+
+        }
+    // eslint-disable-next-line
+    }, [socket])
+
+
 
     const sendMSG = (e) => {
         e.preventDefault();
         if(message !== ""){
             axios.post("http://localhost:5050/chat/sendmsg", {name:v.group.name, sender:localStorage.getItem('user'), text:message})
-                .then(() => setMessage(''));
+                .then(() => {
+                    setMessage('');
+                    refresh();
+                    socket.emit("message", true)
+                });
         }
     }
 
