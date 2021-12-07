@@ -22,8 +22,6 @@ const Editor = () => {
             })
 
             socket.on("text-change", obj => {
-                //console.log(socket.id !== obj.emitter)
-                console.log(obj.text)
                 if(socket.id !== obj.emitter){
                     setText(obj.text);
                 }
@@ -69,15 +67,16 @@ const Editor = () => {
         history(`/group/${localStorage.getItem('gruop')}`);
     }
 
-    //console.log(text)
     return <>
         <button onClick={homeG} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"10px", "left":"10px"}}><img src={home} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"0px", "left":"0px"}} alt="home"/></button>
-        <button onClick={backG} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"10px", "left":"80px"}}><img src={back} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"0px", "left":"0px"}} alt="home" /></button>
+        <button onClick={backG} display={localStorage.getItem('isG') === "1" ? "inline" : "none"} 
+        style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"10px", "left":"80px"}}><img src={back} style={{'height': '60px', 'width': '60px', "position":"absolute", "top":"0px", "left":"0px"}}
+         alt="home"  /></button>
         <form className="editor">
             <div className="opened">  {v.activeFile.name ? v.activeFile.name + "." + v.activeFile.extension : ""}  </div>
             
-            <textarea name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
-            id = {bg}></textarea>
+            <textarea wrap="off"  name="code" value={text} className="editorText" onChange={handleChanges} spellCheck="false" 
+            id = {bg} autoComplete="off" autoCorrect="off" autoCapitalize="off"></textarea>
             
             <button onClick={changeStyle} className="buttonTheme"><img src={sun} alt="sun" className="obj"/><img src={moon} alt="moon" className="obj" id="moon"/>
             <div className={bg==='dark' ? "circleDark" : "circleLight"}></div></button>

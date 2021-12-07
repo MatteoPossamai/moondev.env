@@ -6,7 +6,7 @@ import AddFile from './popups/AddFile';
 import { Link } from 'react-router-dom';
 import '../styles/styleG.css';
 import home from '../images/home.png';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
 import axios from 'axios';
 import moon from '../images/moonBG.png';
@@ -27,11 +27,15 @@ const Group = () => {
     const recharge = () => {
         if(!group || Object.keys(group).length === 0){
             axios.get(`http://localhost:5050/group/${id}`)
-                .then(res => {setGroup(res.data)})
+                .then(res => {setGroup(res.data); console.log(res.data)})
         }
     }
     
-    recharge();
+    useEffect(() => {
+        recharge();
+        // eslint-disable-next-line
+    }, []) 
+
     return (<>
         <PopupContestG.Provider value={{popup,setPopup, recharge, group, selectFile, setSelectFile}}>
         <div className="groupP">

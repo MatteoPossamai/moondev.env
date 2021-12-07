@@ -8,6 +8,7 @@ const JoinAGroup = () => {
     const [name, setName] = useState('');
     const join = () => {
         axios.post("http://localhost:5050/group/add-user-to-group", {user:localStorage.getItem('user'), group_name:name})
+            .then(() => v.setPopup(0))
     }
 
     return (<>
@@ -24,7 +25,6 @@ const JoinAGroup = () => {
             <input type="text" name="name" value={name} onChange={(e)=> setName(e.target.value)} plaheholder="Insert group name"/>
                 <button onClick={() => {
                     join();
-                    v.setPopup(0);
                 }}>Enter</button>
             </div>
         </div>

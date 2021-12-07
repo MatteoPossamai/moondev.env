@@ -24,7 +24,7 @@ const createGroup = (req, res) => {
 const getGroup = (req, res) => {
     const id = req.params.id;
 
-    Group.findOne({id:id})
+    Group.findById(id)
         .then(group => {res.json(group)})
         .catch(err => res.status(400).json('ERROR:'+err))
 }
@@ -59,7 +59,7 @@ const addFileToGroup = (req, res) => {
     const file = req.body.file;
     const group_id = req.body.group_id;
 
-    Group.findOne({ id:group_id})
+    Group.findById(group_id)
         .then(group => {
             if(!group.files.includes(file)){
                 group.files.push(file);

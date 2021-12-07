@@ -11,7 +11,7 @@ const Quit = () => {
             <button style={{'position': 'absolute', 'bottom':'0', 'left':'0'}} onClick={() => v.setPopup(0)}>X</button>
             <button style={{'position': 'absolute', 'right':'40%', 'bottom':'0'}} onClick={() => {
                 axios.post("http://localhost:5050/group/remove-from-group", {user:localStorage.getItem('user'), group_id:v.selectGroup})
-                v.setPopup(0);
+                    .then(() => v.setPopup(0));
             }}>YES</button>
         </div>
     </>

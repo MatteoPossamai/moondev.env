@@ -20,6 +20,7 @@
     margin:5px;
     border-radius: 10px;
     margin-left: 38%;
+    height: fit-content;
 }
 
 .mgsOt{
@@ -29,6 +30,7 @@
     width:60%;
     margin:5px;
     border-radius: 10px;
+    height: fit-content;
 }
 
 .buttSend{

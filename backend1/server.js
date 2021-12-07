@@ -34,8 +34,6 @@ app.use('/chat', chatGRouter);
 
 const httpServer = app.listen(port, () => {console.log(`Server listening on port ${port}`)});
 
-//live Editor
-
 const { Server } = require("socket.io");
 const io = new Server(httpServer, {
     cors : {
@@ -56,10 +54,8 @@ io.on("connection", (socket) => {
         io.to(currentRoom).emit( "text-change", {text:newText, emitter:socket.id})
     })
 
-    socket.on("message", cond => {
-        if (cond){
-            io.to(currentRoom).emit("message", true);
-        }
+    socket.on("message", message => {
+        io.to(currentRoom).emit("message", message);
     })
 
 })

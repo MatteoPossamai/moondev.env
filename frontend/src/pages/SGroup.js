@@ -11,7 +11,7 @@ const Sgroup = (n) => {
         <div className="singleGroup">
             <h3>{n.val}</h3>
             <div className="interaction">
-                <Link to ={link} className="goto" params={{ group: n.name }}>Enter Group Page</Link>
+                <Link to ={link} className="goto">Enter Group Page</Link>
                 <button onClick={() => {v.setPopup(4); v.setSelectGroup(n.name);}}>X</button>
             </div>
         </div>
